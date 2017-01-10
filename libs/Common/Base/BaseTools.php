@@ -453,6 +453,10 @@ class BaseTools
             $this->soapTimeout,
             $this->sslProtocol
         );
+        
+        if(!empty($this->aConfig['aProxyConf']) && !empty($this->aConfig['aProxyConf']->proxyIp)){
+	        $this->oSoap->setProxy($this->aConfig['aProxyConf']->proxyIp, $this->aConfig['aProxyConf']->proxyPort, $this->aConfig['aProxyConf']->proxyUser, $this->aConfig['aProxyConf']->proxyPass);
+        }
     }
     
     /**
